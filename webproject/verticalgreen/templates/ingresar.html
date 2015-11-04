@@ -38,13 +38,14 @@
                 </button>
                 <a class="navbar-brand" href="index.html">
 
-                    <!--<img src="static/img/logo.png" />-->
+                   <!--<img src="../static/img/vg.png" />-->
                 </a>
 
             </div>
 
-            <div class="left-div">
-                <i class="fa fa-user-plus login-icon" ></i>
+            <div class="left">
+                <!--<i class="fa fa-user-plus login-icon" ></i>-->
+				<img src="../static/img/vg.png"  style="margin-left:0px;"/>
         </div>
             </div>
         </div>
@@ -61,20 +62,23 @@
 
             </div>
             <div class="row">
-                <div class="col-md-6">
-               
-                    <!-- <h4> Or Login with <strong>Zontal Account  :</strong></h4>-->
-                 <!-- <form method="POST" action="">
+               <div class="col-md-8">
+                   <!-- <h4> Or Login with <strong>Zontal Account  :</strong></h4>-->
+				 <form id="formulario" method="post" action=''>{% csrf_token %}
+				
 					
 						<label>Enter Email ID : </label>
-                        <input type="text" class="form-control" value={{ user.username }} />
+                        <input type="text" class="form-control" name="username"/>
                         <label>Enter Password :  </label>
-                        <input type="password" class="form-control" value={{form.password}}/>
+                        <input type="password" class="form-control" name="password" />
                         <hr />
-                        <a href="index.html" class="btn btn-info"><span class="glyphicon glyphicon-user"></span> &nbsp;Log Me In </a>&nbsp;
-					</form>-->
-					
-					
+                        <button type='submit'  class="btn btn-info" value='Ingresar'/><span class="glyphicon glyphicon-user"></span> &nbsp;Log Me In </a>&nbsp;</button>
+				
+					<p>
+				  </form>
+
+ 
+ 
 	
 
  
@@ -99,8 +103,8 @@
     <!-- FOOTER SECTION END-->
     <!-- JAVASCRIPT AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
     <!-- CORE JQUERY SCRIPTS -->
-    <script src="static/js/jquery-1.11.1.js"></script>
+    <script src="../static/js/jquery-1.11.1.js"></script>
     <!-- BOOTSTRAP SCRIPTS  -->
-    <script src="static/js/bootstrap.js"></script>
+    <script src="../static/js/bootstrap.js"></script>
 </body>
 </html>

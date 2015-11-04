@@ -1,11 +1,4 @@
-# make sure this is at the top if it isn't already
 from django import forms
+from django.contrib.auth.models import User
+from django.forms import ModelForm
 
-# our new form
-class ProyectoForm(forms.Form):
-    contact_name = forms.CharField(required=True)
-    contact_email = forms.EmailField(required=True)
-    content = forms.CharField(
-        required=True,
-        widget=forms.Textarea
-    )

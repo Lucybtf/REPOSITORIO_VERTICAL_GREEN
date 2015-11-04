@@ -6564,3 +6564,8 @@ button.close {
   }
 }
 /*# sourceMappingURL=bootstrap.css.map */
+/*PlantillA Modificada por Lucía Batista Flores */
+.dropdown {
+    position: relative;
+    margin-left: 200px;
+}

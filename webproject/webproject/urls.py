@@ -25,8 +25,11 @@ urlpatterns = [
  
 
 	url(r'^$', 'verticalgreen.views.inicio'),
-	url(r'^login', 'verticalgreen.views.login'),
+	#url(r'^login', 'verticalgreen.views.login', name='login'),
+	url(r'^usuario/nuevo$','verticalgreen.views.nuevo_usuario'),
+	 url(r'^login/$','verticalgreen.views.ingresar'),
+	#url('', include('django.contrib.auth.urls')),
 	url(r'^tareas', 'verticalgreen.views.tareas'),
-    url(r'^admin/', include(admin.site.urls)),
+	url(r'^admin/', include(admin.site.urls)),
 	#url(r'^add_post/', 'blog.views.create_post', name='add_post'),
 ]

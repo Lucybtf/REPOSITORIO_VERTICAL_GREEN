@@ -201,6 +201,13 @@ footer {
     color: #fff;
     font-size: 12px;
     background-color: #C36464;
+	/*Añadido por Lucía Batista Flores*/
+	/*Queremos poner el pie fijo*/
+	position:fixed;
+	bottom:0;
+	left:0;
+	height:20px;
+	width:100%;
 }
 
     footer a, footer a:hover {

@@ -64,19 +64,40 @@
                 <div class="col-md-6">
                
                     <!-- <h4> Or Login with <strong>Zontal Account  :</strong></h4>-->
-                 <!-- <form method="POST" action="">
+					<!--<form id="formulario" method="POST" action="">
 					
 						<label>Enter Email ID : </label>
-                        <input type="text" class="form-control" value={{ user.username }} />
+                        <input type="text" class="form-control" value={{ formulario.username }} />
                         <label>Enter Password :  </label>
-                        <input type="password" class="form-control" value={{form.password}}/>
+                        <input type="password" class="form-control" value={{formulario.password}}/>
                         <hr />
-                        <a href="index.html" class="btn btn-info"><span class="glyphicon glyphicon-user"></span> &nbsp;Log Me In </a>&nbsp;
+						<p><input type='submit' value='Registrar'/></p>
+							<a href="index.html" class="btn btn-info"><span class="glyphicon glyphicon-user"></span> &nbsp;Log Me In </a>&nbsp;
 					</form>-->
 					
-					
+				<!--	<form  method="post" action=''>{% csrf_token %}
+						<table>{{formulario}}<table>
+						<p><input type='submit' value='Registrar'/></p>
+					</form>-->
 	
-
+					<form id="formulario" method="post" action=''>{% csrf_token %}
+					<!--	{{formulario.username}}-->
+					<!--	{{formulario.password}}-->
+					<!--	{{formulario.password1}}
+						{{formulario.password2}}-->
+						
+					
+						<label>Enter Email ID : </label>
+                        <input type="text" class="form-control" name="username"/>
+                        <label>Enter Password :  </label>
+                        <input type="password" class="form-control" name="password1" />
+						<label>Enter Password :  </label>
+                        <input type="password" class="form-control" name="password2" />
+                        <hr />
+                        <button type='submit'  class="btn btn-info" value='Ingresar'/><span class="glyphicon glyphicon-user"></span> &nbsp;Log Me In </a>&nbsp;</button>
+				
+					<p>
+				  </form>
  
  
 					
@@ -99,8 +120,8 @@
     <!-- FOOTER SECTION END-->
     <!-- JAVASCRIPT AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
     <!-- CORE JQUERY SCRIPTS -->
-    <script src="static/js/jquery-1.11.1.js"></script>
+    <script src="assets/js/jquery-1.11.1.js"></script>
     <!-- BOOTSTRAP SCRIPTS  -->
-    <script src="static/js/bootstrap.js"></script>
+    <script src="assets/js/bootstrap.js"></script>
 </body>
 </html>
