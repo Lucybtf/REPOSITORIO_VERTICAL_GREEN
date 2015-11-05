@@ -40,7 +40,7 @@ class Tarea(models.Model):
 	tipo_tarea = models.CharField(max_length=20, choices=TIPO_TAREA, default=PRODUCCION)
 	recursos =models.ManyToManyField(Recurso)
 	def __unicode__(self):
-		return 'Tarea: ' + unicode(self.name) + unicode(self.proyecto)
+		return 'Tarea: ' + unicode(self.name) + '\n Proyecto' + unicode(self.proyecto) + '\nTipo:' + unicode(self.tipo_tarea) + '\nRecursos:' + unicode(self.recursos)
 	
 class Perfil_has_Tarea(models.Model):
 	dni = models.CharField(max_length=9)
