@@ -22,7 +22,7 @@ class Recurso(models.Model):
 	name = models.CharField(max_length=45)
 	tipo_recurso = models.CharField(max_length=45)
 	def __unicode__(self):
-		return 'Recurso: ' + self.name + self.tipo_recurso
+		return 'Recurso: ' + self.name + " Tipo_recurso:" + self.tipo_recurso
 	
 class Tarea(models.Model):
 	name= models.CharField(max_length=45)
@@ -41,7 +41,9 @@ class Tarea(models.Model):
 	recursos =models.ManyToManyField(Recurso)
 	def __unicode__(self):
 		return 'Tarea: ' + unicode(self.name) + '\n Proyecto' + unicode(self.proyecto) + '\nTipo:' + unicode(self.tipo_tarea) + '\nRecursos:' + unicode(self.recursos)
-	
+	#def get_recursos(self):
+     #   return "\n".join([p.recursos for p in self.recursos.all()])
+		
 class Perfil_has_Tarea(models.Model):
 	dni = models.CharField(max_length=9)
 	tarea = models.ManyToManyField(Tarea)
