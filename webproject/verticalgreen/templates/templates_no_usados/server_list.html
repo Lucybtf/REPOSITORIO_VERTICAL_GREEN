@@ -1,0 +1,226 @@
+﻿{% load static %}
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <![endif]-->
+    <title>VerticalGreenAdministrator</title>
+    <!-- BOOTSTRAP CORE STYLE  -->
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" />
+    <!-- FONT AWESOME ICONS  -->
+    <link href="{% static 'css/font-awesome.css' %}" rel="stylesheet" />
+    <!-- CUSTOM STYLE  -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+     <!-- HTML5 Shiv and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+</head>
+<body>
+    <header>
+        <!--<div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <strong>Email: </strong>info@yourdomain.com
+                    &nbsp;&nbsp;
+                    <strong>Support: </strong>+90-897-678-44
+                </div>
+
+            </div>
+        </div>-->
+    </header>
+    <!-- HEADER END-->
+    <div class="navbar navbar-inverse set-radius-zero">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">
+					 <img src="static/img/vg.png" />
+                </a>
+
+            </div>
+
+            <div class="left-div">
+                <div class="user-settings-wrapper">
+                    <ul class="nav">
+
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                                <span class="glyphicon glyphicon-user" style="font-size: 25px;"></span>
+                            </a>
+                            <div class="dropdown-menu dropdown-settings">
+                                <div class="media">
+                                    <a class="media-left" href="#">
+                                        <img src="assets/img/64-64.jpg" alt="" class="img-rounded" />
+                                    </a>
+                                    <div class="media-body">
+                                        <h4 class="media-heading">Jhon Deo Alex </h4>
+                                        <h5>Developer & Designer</h5>
+
+                                    </div>
+                                </div>
+                                <hr />
+                                <h5><strong>Personal Bio : </strong></h5>
+                                Anim pariatur cliche reprehen derit.
+                                <hr />
+                                <a href="#" class="btn btn-info btn-sm">Full Profile</a>&nbsp; <a href="login.html" class="btn btn-danger btn-sm">Logout</a>
+
+                            </div>
+                        </li>
+
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- LOGO HEADER END-->
+    <section class="menu-section">
+       <!-- <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="navbar-collapse collapse ">
+                        <ul id="menu-top" class="nav navbar-nav navbar-right">
+                            <li><a  href="index.html">Dashboard</a></li>
+                            <li><a class="menu-top-active" href="ui.html">UI Elements</a></li>
+                            <li><a href="table.html">Data Tables</a></li>
+                            <li><a href="forms.html">Forms</a></li>
+                             <li><a href="login.html">Login Page</a></li>
+                            <li><a href="blank.html">Blank Page</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>-->
+		 <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="navbar-collapse collapse ">
+                        <ul id="menu-top" class="nav navbar-nav navbar-right">
+						        <li><a class="menu-top-active" href="/">Perfil Usuario</a></li>
+                            <li><a href="">Tareas</a></li>
+                            <!--<li><a href="table.html">Data Tables</a></li>-->
+                           <!-- <li><a href="forms.html">Forms</a></li>-->
+                             <li><a href="{% url 'verticalgreen.views.ingresar' %}">Login Page</a></li>
+                           <!-- <li><a href="blank.html">Blank Page</a></li>-->
+
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- MENU SECTION END-->
+    <div class="content-wrapper">
+        <div class="container">
+				<div class="row">
+                    <div class="col-md-12">
+                        <h1 class="page-head-line">FORMULARIO DE TAREAS</h1>
+                    </div>
+                </div>
+                <div class="row">
+					<div class="col-md-12">
+						
+					<h1>Servers</h1>
+					<ul>
+						{% for server in object_list %}
+						<li>{{ server.name }}  :  
+						<a href="{% url 'server_edit'server.id %}">{{ server.ip }}</a>
+						<a href="{% url 'server_delete' server.id %}">delete</a>
+						</li>
+						{% endfor %}
+					</ul>
+
+					<a href="{% url "server_new" %}">New</a>
+						
+									
+									
+								<!--	<div class="workspaceContainer ng-scope" ng-repeat="wk in workspaces" ng-show="currentWorkspace==wk">
+												
+        <div class="bootstrap-table">
+		<div class="fixed-table-toolbar">
+		<div class="columns columns-right btn-group pull-right">
+		<button class="btn btn-default" type="button" name="toggle" title="Toggle">
+		<i class="glyphicon glyphicon-list-alt icon-list-alt"></i></button>
+		<div class="keep-open btn-group" title="Columns">
+		<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+		<i class="glyphicon glyphicon-th icon-th"></i> <span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu" role="menu">
+		<li><label><input type="checkbox" data-field="index" value="1" checked="checked"> #</label></li>
+		<li><label><input type="checkbox" data-field="id" value="2" checked="checked"> Item ID</label></li>
+		<li><label><input type="checkbox" data-field="name" value="3" checked="checked"> Item Name</label></li>
+		<li><label><input type="checkbox" data-field="workspace" value="4" checked="checked"> Workspace</label></li>
+		<li><label><input type="checkbox" data-field="flag" value="5" checked="checked"> Flag</label></li></ul></div></div>
+		<div class="pull-right search"><input class="form-control" type="text" placeholder="Search"></div></div>
+		<div class="fixed-table-container" style="height: 287px; padding-bottom: 40px;">
+		<div class="fixed-table-header" style="margin-right: 0px;">
+		<table class="ng-isolate-scope table table-hover table-striped" style="width: 1040px;"><thead><tr><th class="bs-checkbox " style="width: 36px; " data-field="state" tabindex="0">
+		<div class="th-inner "><input name="btSelectAll" type="checkbox"></div><div class="fht-cell" style="width: 36px;"></div>
+		</th><th style="text-align: right; vertical-align: bottom; " data-field="index" tabindex="0"><div class="th-inner sortable both">#</div><div class="fht-cell" style="width: 115px;"></div></th><th style="text-align: center; vertical-align: bottom; " data-field="id" tabindex="0"><div class="th-inner sortable both">Item ID</div><div class="fht-cell" style="width: 212px;"></div></th><th style="text-align: center; vertical-align: middle; " data-field="name" tabindex="0"><div class="th-inner sortable both">Item Name</div><div class="fht-cell" style="width: 271px;"></div></th><th style="text-align: left; vertical-align: top; " data-field="workspace" tabindex="0"><div class="th-inner sortable both">Workspace</div><div class="fht-cell" style="width: 285px;"></div></th><th style="text-align: center; vertical-align: middle; " data-field="flag" tabindex="0"><div class="th-inner ">Flag</div><div class="fht-cell" style="width: 116px;"></div></th></tr></thead></table></div><div class="fixed-table-body"><div class="fixed-table-loading" style="top: 41px;">Loading, please wait...</div><table bs-table-control="wk.bsTableControl" class="ng-isolate-scope table table-hover table-striped" style="margin-top: -40px;"><thead><tr><th class="bs-checkbox " style="width: 36px; " data-field="state" tabindex="0"><div class="th-inner "><input name="btSelectAll" type="checkbox"></div><div class="fht-cell"></div></th><th style="text-align: right; vertical-align: bottom; " data-field="index" tabindex="0"><div class="th-inner sortable both">#</div><div class="fht-cell"></div></th><th style="text-align: center; vertical-align: bottom; " data-field="id" tabindex="0"><div class="th-inner sortable both">Item ID</div><div class="fht-cell"></div></th><th style="text-align: center; vertical-align: middle; " data-field="name" tabindex="0"><div class="th-inner sortable both">Item Name</div><div class="fht-cell"></div></th><th style="text-align: left; vertical-align: top; " data-field="workspace" tabindex="0"><div class="th-inner sortable both">Workspace</div><div class="fht-cell"></div></th><th style="text-align: center; vertical-align: middle; " data-field="flag" tabindex="0"><div class="th-inner ">Flag</div><div class="fht-cell"></div></th></tr></thead><tbody><tr class="none" data-index="0"><td class="bs-checkbox"><input data-index="0" name="btSelectItem" type="checkbox"></td><td style="text-align: right; vertical-align: bottom; ">0</td><td style="text-align: center; vertical-align: bottom; ">row 0</td><td style="text-align: center; vertical-align: middle; ">GOOG0</td><td style="text-align: left; vertical-align: top; ">Workspace 1</td><td style="text-align: center; vertical-align: middle; "><img src="img/greenFlag16.png"></td></tr><tr class="none" data-index="1"><td class="bs-checkbox"><input data-index="1" name="btSelectItem" type="checkbox"></td><td style="text-align: right; vertical-align: bottom; ">1</td><td style="text-align: center; vertical-align: bottom; ">row 1</td><td style="text-align: center; vertical-align: middle; ">GOOG1</td><td style="text-align: left; vertical-align: top; ">Workspace 1</td><td style="text-align: center; vertical-align: middle; "><img src="img/greenFlag16.png"></td></tr><tr class="none" data-index="2"><td class="bs-checkbox"><input data-index="2" name="btSelectItem" type="checkbox"></td><td style="text-align: right; vertical-align: bottom; ">2</td><td style="text-align: center; vertical-align: bottom; ">row 2</td><td style="text-align: center; vertical-align: middle; ">GOOG2</td><td style="text-align: left; vertical-align: top; ">Workspace 1</td><td style="text-align: center; vertical-align: middle; "><img src="img/yellowFlag16.png"></td></tr><tr class="none" data-index="3"><td class="bs-checkbox"><input data-index="3" name="btSelectItem" type="checkbox"></td><td style="text-align: right; vertical-align: bottom; ">3</td><td style="text-align: center; vertical-align: bottom; ">row 3</td><td style="text-align: center; vertical-align: middle; ">GOOG3</td><td style="text-align: left; vertical-align: top; ">Workspace 1</td><td style="text-align: center; vertical-align: middle; "><img src="img/yellowFlag16.png"></td></tr><tr class="none" data-index="4"><td class="bs-checkbox"><input data-index="4" name="btSelectItem" type="checkbox"></td><td style="text-align: right; vertical-align: bottom; ">4</td><td style="text-align: center; vertical-align: bottom; ">row 4</td><td style="text-align: center; vertical-align: middle; ">GOOG4</td><td style="text-align: left; vertical-align: top; ">Workspace 1</td><td style="text-align: center; vertical-align: middle; "><img src="img/yellowFlag16.png"></td></tr><tr class="none" data-index="5"><td class="bs-checkbox"><input data-index="5" name="btSelectItem" type="checkbox"></td><td style="text-align: right; vertical-align: bottom; ">5</td><td style="text-align: center; vertical-align: bottom; ">row 5</td><td style="text-align: center; vertical-align: middle; ">GOOG5</td><td style="text-align: left; vertical-align: top; ">Workspace 1</td><td style="text-align: center; vertical-align: middle; "><img src="img/yellowFlag16.png"></td></tr><tr class="none" data-index="6"><td class="bs-checkbox"><input data-index="6" name="btSelectItem" type="checkbox"></td><td style="text-align: right; vertical-align: bottom; ">6</td><td style="text-align: center; vertical-align: bottom; ">row 6</td><td style="text-align: center; vertical-align: middle; ">GOOG6</td><td style="text-align: left; vertical-align: top; ">Workspace 1</td><td style="text-align: center; vertical-align: middle; "><img src="img/blueFlag16.png"></td></tr><tr class="none" data-index="7"><td class="bs-checkbox"><input data-index="7" name="btSelectItem" type="checkbox"></td><td style="text-align: right; vertical-align: bottom; ">7</td><td style="text-align: center; vertical-align: bottom; ">row 7</td><td style="text-align: center; vertical-align: middle; ">GOOG7</td><td style="text-align: left; vertical-align: top; ">Workspace 1</td><td style="text-align: center; vertical-align: middle; "><img src="img/blueFlag16.png"></td></tr><tr class="none" data-index="8"><td class="bs-checkbox"><input data-index="8" name="btSelectItem" type="checkbox"></td><td style="text-align: right; vertical-align: bottom; ">8</td><td style="text-align: center; vertical-align: bottom; ">row 8</td><td style="text-align: center; vertical-align: middle; ">GOOG8</td><td style="text-align: left; vertical-align: top; ">Workspace 1</td><td style="text-align: center; vertical-align: middle; "><img src="img/blueFlag16.png"></td></tr><tr class="none" data-index="9"><td class="bs-checkbox"><input data-index="9" name="btSelectItem" type="checkbox"></td><td style="text-align: right; vertical-align: bottom; ">9</td><td style="text-align: center; vertical-align: bottom; ">row 9</td><td style="text-align: center; vertical-align: middle; ">GOOG9</td><td style="text-align: left; vertical-align: top; ">Workspace 1</td><td style="text-align: center; vertical-align: middle; "><img src="img/blueFlag16.png"></td></tr></tbody></table></div><div class="fixed-table-footer" style="display: none;"><table><tbody><tr></tr></tbody></table></div><div class="fixed-table-pagination"><div class="pull-left pagination-detail"><span class="pagination-info">Showing 1 to 10 of 500 rows</span><span class="page-list"><span class="btn-group dropup"><button type="button" class="btn btn-default  dropdown-toggle" data-toggle="dropdown"><span class="page-size">10</span> <span class="caret"></span></button><ul class="dropdown-menu" role="menu"><li><a href="javascript:void(0)">5</a></li><li class="active"><a href="javascript:void(0)">10</a></li><li><a href="javascript:void(0)">25</a></li><li><a href="javascript:void(0)">50</a></li><li><a href="javascript:void(0)">100</a></li><li><a href="javascript:void(0)">200</a></li></ul></span> records per page</span></div><div class="pull-right pagination"><ul class="pagination"><li class="page-first disabled"><a href="javascript:void(0)">«</a></li><li class="page-pre disabled"><a href="javascript:void(0)">‹</a></li><li class="page-number active"><a href="javascript:void(0)">1</a></li><li class="page-number"><a href="javascript:void(0)">2</a></li><li class="page-number"><a href="javascript:void(0)">3</a></li><li class="page-number"><a href="javascript:void(0)">4</a></li><li class="page-number"><a href="javascript:void(0)">5</a></li><li class="page-next"><a href="javascript:void(0)">›</a></li><li class="page-last"><a href="javascript:void(0)">»</a></li></ul></div></div></div></div><div class="clearfix"></div>
+    </div>-->
+									
+									
+									
+									
+									
+									
+									
+							
+					
+					
+
+					</div>
+                </div>
+                
+        </div>
+
+    </div>
+                   
+                
+                    
+                       
+                     <!--  Modals-->
+                   
+                     <!-- End Modals-->
+                
+                   
+                    
+               
+                
+
+       
+    <!-- CONTENT-WRAPPER SECTION END-->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    &copy; 2015 YourCompany | By : <a href="http://www.designbootstrap.com/" target="_blank">DesignBootstrap</a>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+    <!-- FOOTER SECTION END-->
+    <!-- JAVASCRIPT AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
+    <!-- CORE JQUERY SCRIPTS -->
+    <script src="assets/js/jquery-1.11.1.js"></script>
+    <!-- BOOTSTRAP SCRIPTS  -->
+    <script src="assets/js/bootstrap.js"></script>
+</body>
+</html>

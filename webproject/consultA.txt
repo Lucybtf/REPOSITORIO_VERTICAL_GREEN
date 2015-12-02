@@ -1,0 +1,11 @@
+SELECT verticalgreen_tarea.id, verticalgreen_tarea.name, verticalgreen_tarea.proyecto_id, verticalgreen_tarea.tipo_tarea, tarea_id, recurso_id, verticalgreen_recurso.id, verticalgreen_recurso.name, verticalgreen_recurso.tipo_recurso FROM `verticalgreen_tarea`, `verticalgreen_tarea_recursos`, `verticalgreen_recurso` where recurso_id = verticalgreen_recurso.id && verticalgreen_tarea.id = tarea_id
+
+Consulta bonita:
+SELECT verticalgreen_tarea.name, verticalgreen_proyecto.name,  verticalgreen_tarea.tipo_tarea, verticalgreen_recurso.name, verticalgreen_recurso.tipo_recurso FROM `verticalgreen_tarea`, `verticalgreen_tarea_recursos`, `verticalgreen_recurso`, `verticalgreen_proyecto` where recurso_id = verticalgreen_recurso.id && verticalgreen_tarea.id = tarea_id && verticalgreen_proyecto.id = verticalgreen_tarea.proyecto_id
+
+
+
+SELECT verticalgreen_tarea.name as tarea, verticalgreen_proyecto.name as proyecto,  verticalgreen_tarea.tipo_tarea, verticalgreen_recurso.name, verticalgreen_recurso.tipo_recurso FROM `verticalgreen_tarea`, `verticalgreen_tarea_recursos`, `verticalgreen_recurso`, `verticalgreen_proyecto` where recurso_id = verticalgreen_recurso.id && verticalgreen_tarea.id = tarea_id && verticalgreen_proyecto.id = verticalgreen_tarea.proyecto_id'
+
+Consulta para ver tarea, proyecto y tipo de tarea:
+SELECT verticalgreen_tarea.name as tarea, verticalgreen_proyecto.name as proyecto, verticalgreen_tarea.tipo_tarea FROM `verticalgreen_tarea`, `verticalgreen_proyecto` where  verticalgreen_proyecto.id = verticalgreen_tarea.proyecto_id
